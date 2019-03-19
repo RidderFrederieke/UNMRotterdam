@@ -1,0 +1,17 @@
+{
+    "tilejson": "2.2.0",
+    "name": "cartiqo",
+    "description": "An awesome map of the Netherlands by Webmapper",
+    "version": "1.0.0",
+    "attribution": "<a href='http://webmapper.net' target='_blank'>&copy Cartiqo</a>",
+    "tiles": [
+      "https://ta.webmapper.nl/wm/cartiqo/{z}/{x}/{y}",
+      "https://tb.webmapper.nl/wm/cartiqo/{z}/{x}/{y}",
+      "https://tc.webmapper.nl/wm/cartiqo/{z}/{x}/{y}"
+    ],
+    "center": [
+        52.02624,
+        5.17197,
+        13
+    ]
+}

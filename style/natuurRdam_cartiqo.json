@@ -1,0 +1,1298 @@
+{
+    "version": 8,
+    "name": "data",
+    "glyphs": "https://ta.webmapper.nl/wm/glyphs/{fontstack}/{range}.pbf",
+    "sprite": "https://ta.webmapper.nl/wm/sprites/stb_icons",
+    "sources": {
+        "wm_visdata": {
+            "type": "vector",
+            "url": "./style/tile-cloud.json"
+        }
+    },
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "#FFFFFE"
+            }
+        },
+        {
+            "id": "urban_area",
+            "source": "wm_visdata",
+            "source-layer": "builtup",
+            "filter": [
+                "==",
+                "type",
+                "area"
+            ],
+            "type": "fill",
+            "paint": {
+                "fill-color": "#FFFFFE"
+            }
+        },
+        {
+            "id": "water",
+            "source": "wm_visdata",
+            "source-layer": "water",
+            "type": "fill",
+            "paint": {
+                "fill-color": "#DFEDF5"
+            }
+        },
+        {
+            "id": "grass",
+            "source": "wm_visdata",
+            "source-layer": "agricultural",
+            "type": "fill",
+            "paint": {
+                "fill-color": [
+                    "match",
+                    [
+                        "get",
+                        "type"
+                    ],
+                    "agriculture",
+                    "#D1DFD4",
+                    "arboriculture",
+                    "#ADC5B3",
+                    "pasture",
+                    "#ADC5B3",
+                    "greenhouse",
+                    "#FFFFFE",
+                    "fallow",
+                    "#fffffe",
+                    "#fffffe"
+                ]
+            }
+        },
+        {
+            "id": "nature",
+            "source": "wm_visdata",
+            "source-layer": "natural",
+            "type": "fill",
+            "minzoom": 0,
+            "maxzoom": 22,
+            "paint": {
+                "fill-color": [
+                    "match",
+                    [
+                        "get",
+                        "type"
+                    ],
+                    "high",
+                    "#4C825E",
+                    "low",
+                    "#4C825E",
+                    "bare",
+                    "#ADC5B3",
+                    "#D1DFD4"
+                ]
+            }
+        },
+        {
+            "id": "infrastructure_areas",
+            "source": "wm_visdata",
+            "source-layer": "infrastructure",
+            "type": "fill",
+            "filter": [
+                "!=",
+                "type",
+                "road"
+            ],
+            "paint": {
+                "fill-color": [
+                    "match",
+                    [
+                        "get",
+                        "type"
+                    ],
+                    "railway",
+                    "#FFFFFE",
+                    "parking",
+                    "#FFFFFE",
+                    "#FFFFFE"
+                ]
+            }
+        },
+        {
+            "id": "infrastructure_road-casing",
+            "source": "wm_visdata",
+            "source-layer": "infrastructure",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "road"
+            ],
+            "paint": {
+                "line-color": "#d2d2d2",
+                "line-width": 1.5
+            }
+        },
+        {
+            "id": "infrastructure_road",
+            "source": "wm_visdata",
+            "source-layer": "infrastructure",
+            "type": "fill",
+            "filter": [
+                "==",
+                "type",
+                "road"
+            ],
+            "paint": {
+                "fill-color": "#fbfbfb"
+            }
+        },
+        {
+            "id": "water_line",
+            "source": "wm_visdata",
+            "source-layer": "waterline",
+            "type": "line",
+            "filter": [
+                "in",
+                "type",
+                "12m",
+                "50m",
+                "125m"
+            ],
+            "paint": {
+                "line-color": "#DFEDF5",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0,
+                    11.5,
+                    1,
+                    12,
+                    1.5,
+                    13,
+                    4
+                ]
+            }
+        },
+        {
+            "id": "local-small-case",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "name",
+                    ""
+                ],
+                [
+                    "==",
+                    "type",
+                    "local"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.2
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    13,
+                    0,
+                    13.5,
+                    0.6,
+                    14,
+                    1.5,
+                    20,
+                    12
+                ],
+                "line-color": "#d1c1be",
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.8,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "local-case",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "local"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.2
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    12,
+                    0,
+                    13,
+                    0.6,
+                    13.5,
+                    1.5,
+                    20,
+                    16
+                ],
+                "line-color": "#F2F1F1",
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.8,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "secondary-case",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "secondary"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.18
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    0,
+                    12,
+                    0.6,
+                    13,
+                    1.5,
+                    20,
+                    18
+                ],
+                "line-color": "#F2F1F1",
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.8,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "main-case",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "main"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.2
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    9,
+                    0,
+                    10,
+                    0.6,
+                    11,
+                    1.5,
+                    20,
+                    20
+                ],
+                "line-color": "#F2F1F1",
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.8,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "motorway-case",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "motorway"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.2
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    7,
+                    0,
+                    8,
+                    0.6,
+                    9,
+                    1.5,
+                    20,
+                    22
+                ],
+                "line-color": "#F2F1F1",
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.8,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "highway-case",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "highway"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.25                    ],
+                    [
+                        "zoom"
+                    ],
+                    4,
+                    0,
+                    5,
+                    0.6,
+                    6,
+                    1.5,
+                    20,
+                    26
+                ],
+                "line-color": "#F2F1F1"
+            }
+        },
+        {
+            "id": "local-small-fill",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "name",
+                    ""
+                ],
+                [
+                    "==",
+                    "type",
+                    "local"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#F2F1F1",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.2
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    13.5,
+                    0,
+                    14,
+                    0.5,
+                    20,
+                    8
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.9,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "local-fill",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "local"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#FFFFFE",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.2
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    13,
+                    0,
+                    13.5,
+                    0.5,
+                    20,
+                    12
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.9,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "secondary-fill",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "secondary"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#FFFFFE",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.18
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    12,
+                    0,
+                    13,
+                    0.5,
+                    20,
+                    14
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.9,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "main-fill",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "main"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#FFFFFE",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.2
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    10,
+                    0,
+                    11,
+                    0.5,
+                    20,
+                    16
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.9,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "motorway-fill",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "motorway"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#FFFFFE",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.2
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    8,
+                    0,
+                    9,
+                    0.5,
+                    20,
+                    18
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.9,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "highway-fill",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "highway"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#FFFFFE",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.25
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    5,
+                    0,
+                    6,
+                    0.5,
+                    20,
+                    22
+                ]
+            }
+        },
+        {
+            "id": "bike-case",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "bike"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "none"
+            },
+            "paint": {
+                "line-width": 1,
+                "line-color": "#F2F1F1",
+                "line-dasharray": [
+                    5,
+                    6
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.7,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "path-case",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "type": "line",
+            "filter": [
+                "==",
+                "type",
+                "path"
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-width": 1,
+                "line-color": "#F2F1F1",
+                "line-dasharray": [
+                    3,
+                    5
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.7,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "tram",
+            "type": "line",
+            "source": "wm_visdata",
+            "source-layer": "railways",
+            "filter": [
+                "==",
+                "type",
+                "tram"
+            ],
+            "paint": {
+                "line-color": "#8C8D8C",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    15,
+                    0,
+                    15.5,
+                    0.5,
+                    20,
+                    2
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.5,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "metro",
+            "type": "line",
+            "source": "wm_visdata",
+            "source-layer": "railways",
+            "filter": [
+                "==",
+                "type",
+                "metro"
+            ],
+            "paint": {
+                "line-color": "#8C8D8C",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    15,
+                    0,
+                    15.5,
+                    0.5,
+                    20,
+                    2
+                ],
+                "line-opacity": [
+                    "case",
+                    [
+                        "get",
+                        "tunnel"
+                    ],
+                    0.5,
+                    1
+                ]
+            }
+        },
+        {
+            "id": "railway",
+            "type": "line",
+            "source": "wm_visdata",
+            "source-layer": "railways",
+            "filter": [
+                "==",
+                "type",
+                "rail"
+            ],
+            "paint": {
+                "line-color": "#8C8D8C",
+                "line-width": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    10,
+                    0,
+                    11,
+                    0.5,
+                    20,
+                    2
+                ]
+            }
+        },
+        {
+            "id": "buildings",
+            "source": "wm_visdata",
+            "source-layer": "builtup",
+            "type": "fill",
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "type",
+                    "building",
+                    "wall"
+                ],
+                [
+                    "!=",
+                    "subtype",
+                    "barn"
+                ],
+                [
+                    "!=",
+                    "subtype",
+                    "pitch"
+                ]
+            ],
+            "paint": {
+                "fill-color": "#F2F1F1"
+            }
+        },
+        {
+            "id": "path-names",
+            "type": "symbol",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "filter": [
+                "==",
+                "type",
+                "path"
+            ],
+            "layout": {
+                "text-max-angle": 40,
+                "text-padding": 15,
+                "text-size": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    14,
+                    9,
+                    15,
+                    10,
+                    20,
+                    13
+                ],
+                "text-font": [
+                    "LatoSemi"
+                ],
+                "text-field": "{name}",
+                "symbol-placement": "line",
+                "text-rotation-alignment": "map"
+            },
+            "paint": {
+                "text-halo-color": "#ffffff",
+                "text-halo-blur": 0.5,
+                "text-color": "#8C8D8C",
+                "text-halo-width": 1
+            }
+        },
+        {
+            "id": "road-names",
+            "type": "symbol",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "filter": [
+                "!in",
+                "type",
+                "highway",
+                "path"
+            ],
+            "layout": {
+                "text-max-angle": 40,
+                "text-padding": 15,
+                "text-size": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    14,
+                    11,
+                    15,
+                    12,
+                    20,
+                    15
+                ],
+                "text-font": [
+                    "LatoSemi"
+                ],
+                "text-field": "{name}",
+                "symbol-placement": "line",
+                "text-rotation-alignment": "map"
+            },
+            "paint": {
+                "text-halo-color": "#ffffff",
+                "text-halo-blur": 0.5,
+                "text-color": "#8C8D8C",
+                "text-halo-width": 1
+            }
+        },
+        
+        {
+            "id": "poi_public_space",
+            "type": "symbol",
+            "source": "wm_visdata",
+            "source-layer": "pois",
+            "minzoom": 13.8,
+            "filter": ["all",
+                [
+                "==",
+                "type",
+                "public_space"
+                ],
+                [
+                    "!=",
+                    "subtype",
+                    "parking_place"
+                ]
+                ,
+                [
+                    "has", "name"
+                ]
+                ,
+                [
+                    "!=",
+                    "name",
+                    ""
+                ]
+            ],
+            "layout":{
+                "icon-image": [
+                    "match",
+                    [
+                        "get",
+                        "subtype"
+                    ],
+                    "airport",
+                    "airport_11",
+                    "bus_stop",
+                    "bus_11",
+                    "ferry_terminal",
+                    "ferry_terminal_11",
+                    "metro_entrance",
+                    "rail_metro_11",
+                    "station",
+                    "railway_11",
+                    "tram_stop",
+                    "rail_light_11",
+                    "parking_place",
+                    "parking_11",
+                    "playground",
+                    "playground_11",
+                    "plus_1"
+                ],
+                "text-padding": 2,
+                "text-font": [
+                    "Lato"
+                ],
+                "text-anchor": "bottom",
+                "text-field": "{name}",
+                "text-offset": [
+                    0,
+                    2
+                ],
+                "text-size": 10,
+                "text-max-width": 9
+            },
+            "paint": {
+                "text-halo-blur": 0.5,
+                "text-color": "#8C8D8C",
+                "text-halo-width": 1,
+                "text-halo-color": "#ffffff"
+            }
+        },
+        {
+            "id": "N-road",
+            "type": "symbol",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "filter": [
+                "==",
+                "type",
+                "motorway"
+            ],
+            "layout": {
+                "text-max-angle": 30,
+                "text-padding": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    8,
+                    30,
+                    10,
+                    80,
+                    14,
+                    100,
+                    20,
+                    200
+                ],
+                "text-size": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    14,
+                    12,
+                    15,
+                    14,
+                    20,
+                    16
+                ],
+                "text-font": [
+                    "LatoSemi"
+                ],
+                "text-field": "{road_number}",
+                "symbol-placement": "line",
+                "text-rotation-alignment": "viewport"
+            },
+            "paint": {
+                "text-halo-blur": 0,
+                "text-color": "#8C8D8C",
+                "text-halo-width": 10,
+                "text-halo-color": "#fff"
+            }
+        },
+        {
+            "id": "A-road",
+            "type": "symbol",
+            "source": "wm_visdata",
+            "source-layer": "roads",
+            "filter": [
+                "==",
+                "type",
+                "highway"
+            ],
+            "layout": {
+                "text-max-angle": 30,
+                "text-padding": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    7,
+                    50,
+                    8,
+                    20,
+                    10,
+                    80,
+                    14,
+                    100,
+                    20,
+                    200
+                ],
+                "text-size": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        1.1
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    14,
+                    14,
+                    15,
+                    16,
+                    20,
+                    18
+                ],
+                "text-font": [
+                    "Lato"
+                ],
+                "text-field": "{road_number}",
+                "symbol-placement": "line",
+                "text-rotation-alignment": "viewport"
+            },
+            "paint": {
+                "text-halo-blur": 0,
+                "text-color": "#8C8D8C",
+                "text-halo-width": 10,
+                "text-halo-color": "#fff"
+            }
+        },
+        {
+            "id": "place-labels",
+            "type": "symbol",
+            "source": "wm_visdata",
+            "source-layer": "labels",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "type",
+                    "place"
+                ],
+                [
+                    "!=",
+                    "subtype",
+                    "urban_district"
+                ]
+            ],
+            "minzoom": 8,
+            "maxzoom": 16,
+            "layout": {
+                "text-allow-overlap": false,
+                "text-padding": 1,
+                "text-size": [
+                    "interpolate",
+                    [
+                        "exponential",
+                        0.8
+                    ],
+                    [
+                        "get",
+                        "hierarchy"
+                    ],
+                    1,
+                    28,
+                    10,
+                    12
+                ],
+                "text-font": [
+                    "case",
+                    [
+                        ">=",
+                        [
+                            "get",
+                            "hierarchy"
+                        ],
+                        6
+                    ],
+                    [
+                        "literal",
+                        [
+                            "Lato"
+                        ]
+                    ],
+                    [
+                        "<",
+                        [
+                            "get",
+                            "hierarchy"
+                        ],
+                        6
+                    ],
+                    [
+                        "literal",
+                        [
+                            "LatoSemi"
+                        ]
+                    ],
+                    [
+                        "literal",
+                        [
+                            "LatoSemi"
+                        ]
+                    ]
+                ],
+                "text-field": "{name}",
+                "symbol-placement": "point",
+                "text-rotation-alignment": "viewport"
+            },
+            "paint": {
+                "text-halo-blur": 0.5,
+                "text-color": [
+                    "match",
+                    [
+                        "get",
+                        "subtype"
+                    ],
+                    "urban_district",
+                    "#67B1D6",
+                    "#67B1D6"
+                ],
+                "text-halo-width": 1,
+                "text-halo-color": "#fff"
+            }
+        }
+    ]
+}

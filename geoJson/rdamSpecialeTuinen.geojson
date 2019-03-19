@@ -1,0 +1,26 @@
+var rdamSpecialeTuinen = {
+"type": "FeatureCollection",
+"name": "rdamSpecialeTuinen",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": "2113859", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Het Park (bij de Euromast)", "POSTCODE": "3016CG", "HUISNR": "25", "HUISNUMMER": "25" }, "geometry": { "type": "Point", "coordinates": [ 4.47115, 51.90682 ] } },
+{ "type": "Feature", "properties": { "ID": "2115908", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Zuiderlijk Randpark", "POSTCODE": null, "HUISNR": null, "HUISNUMMER": null }, "geometry": { "type": "Point", "coordinates": [ 4.47521, 51.86601 ] } },
+{ "type": "Feature", "properties": { "ID": "2115910", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Zuiderpark", "POSTCODE": "3084BA", "HUISNR": "10", "HUISNUMMER": "10" }, "geometry": { "type": "Point", "coordinates": [ 4.48682, 51.88188 ] } },
+{ "type": "Feature", "properties": { "ID": "2115644", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Roel Langerakpark", "POSTCODE": "3041JK", "HUISNR": "25", "HUISNUMMER": "25" }, "geometry": { "type": "Point", "coordinates": [ 4.4412, 51.92316 ] } },
+{ "type": "Feature", "properties": { "ID": "2114298", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Park Zestienhoven", "POSTCODE": "3045LR", "HUISNR": "20", "HUISNUMMER": "20" }, "geometry": { "type": "Point", "coordinates": [ 4.4461, 51.94131 ] } },
+{ "type": "Feature", "properties": { "ID": "2267657", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Terbregsepark", "POSTCODE": null, "HUISNR": null, "HUISNUMMER": null }, "geometry": { "type": "Point", "coordinates": [ 4.52124, 51.95937 ] } },
+{ "type": "Feature", "properties": { "ID": "2267667", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Schiebroekse park", "POSTCODE": null, "HUISNR": null, "HUISNUMMER": null }, "geometry": { "type": "Point", "coordinates": [ 4.47473, 51.96668 ] } },
+{ "type": "Feature", "properties": { "ID": "2265808", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Park 1943", "POSTCODE": "3026CH", "HUISNR": "127", "HUISNUMMER": "127" }, "geometry": { "type": "Point", "coordinates": [ 4.44089, 51.91307 ] } },
+{ "type": "Feature", "properties": { "ID": "2113862", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Kralingse Bos", "POSTCODE": "3062CJ", "HUISNR": "9", "HUISNUMMER": "9" }, "geometry": { "type": "Point", "coordinates": [ 4.50421, 51.93473 ] } },
+{ "type": "Feature", "properties": { "ID": "2113396", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Berg- en Broekpark", "POSTCODE": "3054KV", "HUISNR": "76", "HUISNUMMER": "76" }, "geometry": { "type": "Point", "coordinates": [ 4.47811, 51.95262 ] } },
+{ "type": "Feature", "properties": { "ID": "2114303", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Prinsenmolenpark", "POSTCODE": null, "HUISNR": null, "HUISNUMMER": null }, "geometry": { "type": "Point", "coordinates": [ 4.49942, 51.95096 ] } },
+{ "type": "Feature", "properties": { "ID": "2113886", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Oude Plantage en Watertoren", "POSTCODE": "3063HA", "HUISNR": "180", "HUISNUMMER": "180" }, "geometry": { "type": "Point", "coordinates": [ 4.51997, 51.91244 ] } },
+{ "type": "Feature", "properties": { "ID": "2113878", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Melanchtonpark", "POSTCODE": "3052KR", "HUISNR": "6", "HUISNUMMER": "6" }, "geometry": { "type": "Point", "coordinates": [ 4.47246, 51.94658 ] } },
+{ "type": "Feature", "properties": { "ID": "2113881", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Museumpark", "POSTCODE": "3015AA", "HUISNR": "341", "HUISNUMMER": "341" }, "geometry": { "type": "Point", "coordinates": [ 4.47349, 51.91053 ] } },
+{ "type": "Feature", "properties": { "ID": "2115900", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Varkenoordse park", "POSTCODE": "3074WX", "HUISNR": "12", "HUISNUMMER": "12" }, "geometry": { "type": "Point", "coordinates": [ 4.51751, 51.8925 ] } },
+{ "type": "Feature", "properties": { "ID": "2113889", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Park De Twee Heuvels", "POSTCODE": "3078JD", "HUISNR": "78", "HUISNUMMER": "78" }, "geometry": { "type": "Point", "coordinates": [ 4.54184, 51.89168 ] } },
+{ "type": "Feature", "properties": { "ID": "2115906", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Vroesenpark", "POSTCODE": "3039MC", "HUISNR": "181", "HUISNUMMER": "181" }, "geometry": { "type": "Point", "coordinates": [ 4.45063, 51.92916 ] } },
+{ "type": "Feature", "properties": { "ID": "2115650", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Slotvijver", "POSTCODE": "3062AA", "HUISNR": "1", "HUISNUMMER": "1" }, "geometry": { "type": "Point", "coordinates": [ 4.51656, 51.92449 ] } },
+{ "type": "Feature", "properties": { "ID": "2267668", "TYPE": "5460", "TYPE_OMSCHRIJVING": "Parken", "OMSCHRIJVING": "Argonautenpark", "POSTCODE": null, "HUISNR": null, "HUISNUMMER": null }, "geometry": { "type": "Point", "coordinates": [ 4.48601, 51.95922 ] } }
+]
+};
