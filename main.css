@@ -1,36 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
+/*Popup*/
 .mapboxgl-popup {
   max-width: 400px;
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   }
 
 .mapboxgl-popup-content {
-    background: #67B1D6;
+    background: #0098C9;
 }
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
-  border-bottom-color: #67B1D6;
+  border-bottom-color: #0098C9;
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-  border-top-color: #67B1D6;
+  border-top-color: #0098C9;
 }
 
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
 
-  border-right-color: #67B1D6;
+  border-right-color: #0098C9;
 }
 
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
 
-  border-left-color: #67B1D6;
+  border-left-color: #0098C9;
 }
 
   /*Text*/
-h1 
-  {font-family: 'Roboto Condensed', sans-serif;
+h1 {
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 22px; 
+  color: #fff;
+  text-align: center;
+  }
+
+p{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px; 
   color: #fff;
   text-align: center;
   }
