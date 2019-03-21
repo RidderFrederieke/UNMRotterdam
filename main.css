@@ -17,6 +17,16 @@
   border-top-color: #67B1D6;
 }
 
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+
+  border-right-color: #67B1D6;
+}
+
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+
+  border-left-color: #67B1D6;
+}
+
   /*Text*/
 h1 
   {font-family: 'Roboto Condensed', sans-serif;
