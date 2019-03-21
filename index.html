@@ -29,23 +29,23 @@
         zoom: 12
       });
 
+      map.addControl(new mapboxgl.NavigationControl());
+
       map.on('load', function () {
-        map.loadImage('./images/urbangreenSpot.png', function(error, image) {
-          if (error) throw error;
-          map.addImage('greenSpot', image);
-          map.addLayer({
-            "id": "points",
-            "type": "symbol",
-            "source": {
-              "type": "geojson",
-              "data": rdamSpecialeTuinen
-            },
-            "layout": {
-            "icon-image": "greenSpot",
-            "icon-size": 0.1,
-            "icon-allow-overlap": true
-            }
-          });
+        map.addLayer({
+          "id": "points",
+          "type": "circle",
+          "source": {
+            "type": "geojson",
+            "data": rdamSpecialeTuinen
+          },
+          "paint": {
+            "circle-radius": 10,
+            "circle-color": "#DB4EB9",
+            "circle-opacity": 0.25,
+            "circle-stroke-width": 3,
+            "circle-stroke-color": "#DB4EB9"
+          }
         });
       });
 
@@ -53,7 +53,7 @@
       // location of the feature, with description HTML from its properties.
       map.on('click', 'points', function (e) {
           var coordinates = e.features[0].geometry.coordinates.slice();
-          var description ='<h1>' + e.features[0].properties.OMSCHRIJVING +'</h1>  adres: ' + e.features[0].properties.POSTCODE + ' </br> huisnummer: ' + e.features[0].properties.HUISNR + ' </br> ';
+          var description ='<h1>' + e.features[0].properties.OMSCHRIJVING +'</h1>  <p> adres: ' + e.features[0].properties.POSTCODE + ' </br> huisnummer: ' + e.features[0].properties.HUISNR + '</p>';
  
       // Ensure that if the map is zoomed out such that multiple
       // copies of the feature are visible, the popup appears
