@@ -26,7 +26,10 @@
         container: 'map',
         style: './style/natuurRdam_cartiqo.json',
         center: [4.495930, 51.923886],
-        zoom: 12
+        maxBounds: [4.301989, 51.827823, 4.645655, 52.025566],
+        zoom: 12,
+        minZoom: 11,
+        maxZoom: 17
       });
 
       map.addControl(new mapboxgl.NavigationControl());
